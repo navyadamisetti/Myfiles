@@ -1,0 +1,58 @@
+<html>
+<head>
+	
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+	
+
+<script src="https://fb.me/react-0.13.3.js"></script>
+<script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+<div id="app"></div>
+<script type="text/jsx;harmony=true">
+void function() { "use strict";
+
+var App = React.createClass({
+ getInitialState: function() {
+        return { submit: false };
+    },
+    onClick: function() {
+        this.setState({ submit: true });
+    },
+  render() {
+    return (
+   <div class="container">
+           
+   
+    <div class="form-group">
+    <button type="submit" name="submit" class="btn btn-success" onClick={this.onClick}>edit</button><br />
+
+      <label for="email">Name:</label>
+      <input type="text" class="form-control" id="name"  placeholder="name" disabled={this.state.submit} />
+    </div>
+    <div class="form-group">
+      <label for="pwd">Description:</label>
+      <input type="text" class="form-control" id="des" placeholder="Description" disabled={this.state.submit} />
+    </div>
+    
+    
+
+</div>
+);
+    
+  }
+})
+
+React.render(<App/>, document.getElementById('app'))
+
+}()
+</script>
+</body>
+ </html>
+
