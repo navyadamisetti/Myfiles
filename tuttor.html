@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Tuttor</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/9.0.9/css/intlTelInput.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/app.0a28ef9c0ff1.css">
+
+  <style type="text/css">
+    body{
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <nav class="navbar navbar-default trans-navbar">
+    <div id="trans-navbar-container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/"> <img src='https://s3.amazonaws.com/tuttor-storage/media/common_images/tuttor-font-logo-2.png' style="height:30px;margin:15px;margin-right: 0px;"> </a> 
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right" style="padding-top:10px;">
+          
+          <li><a href="/become-a-tutor/" class="trans-nav-ghost-button" >Teacher</a></li>
+          <li><a type="button" class="trans-nav-ghost-button" href="" data-toggle="modal" data-target="#signinModal">Student</a></li>
+          
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+  <div class="lp-hu">
+    <div class="lp-hu-video-container" style="background: url(https://s3.amazonaws.com/tuttor-storage/media/common_images/pexels-photo-109123-copy.jpg)no-repeat center center;">
+      <div class="lp-hu-filter"></div>
+      <div class="lp-hu-title-container" style="top: 30%;">
+        <div class="container">
+          <h1>&nbsp;<span id="lp-hu-title"></span></h1>
+          <h4>Choose from a wide range of several such outcome based micro courses.</h4>
+          <div style="padding-top:20px;">
+            <span href="#howitworks" id="howitworks-btn" class="button-primary">How it works</span>
+            <!--<span href="#wow" class="ghost-btn">Experience Tuttor</span>-->
+          </div>
+        </div>
+      </div>
+      <!--
+      <video autoplay="" loop="" class="fillWidth fadeIn animated" id="video-background">
+        <source src="https://s3.amazonaws.com/tuttor-storage/media/common_images/pexels-photo-109123-copy.jpg" type="video/mp4">
+      </video>
+      -->
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="border-radius:2px;text-align:center;top:10%;">
+      <div class="col-md-6 col-sm-8 col-xs-10 col-centered">
+        <div class="panel panel-login">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                <a href="#" class="active" id="login-form-link">Login</a>
+              </div>
+              <div class="col-xs-6">
+                <a href="#" id="register-form-link">Register</a>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-12" style="text-align:center;">
+                <form id="loginForm" method="post" action="/user/signin/"><input type='hidden' name='csrfmiddlewaretoken' value='AZYjb6OcsqxwIERpUAHZgemrDVqcZMRb' />
+                  <div class="form-group">
+                    <input autofocus="autofocus" class="simple-form-input" id="id_login" maxlength="60" name="login" placeholder="Email" type="text" required>
+                  </div>
+                  <div class="form-group">
+                    <input id="id_password" class="simple-form-input" name="password" placeholder="Password" type="password" required>
+                  </div>
+                  <button type="submit" class="button-semi-block"><span>Sign In</span></button>
+                  <div class="form-footer-urls">
+                    <p><a href="/accounts/password/reset/" tabindex="5" class="forgot-password">Forgot Password?</a></p>
+                  </div>
+                </form>
+
+                <form id="signup_form" method="post" action="/user/student/signup/" role="form" style="display: none;"><input type='hidden' name='csrfmiddlewaretoken' value='AZYjb6OcsqxwIERpUAHZgemrDVqcZMRb' />
+                  <div class="form-group">
+                    <input id="id_first_name" class="simple-form-input" name="first_name" type="text" placeholder="First Name" data-validation="required" data-validation-error-msg="Please enter your First name" />
+                  </div>
+                  <div class="form-group">
+                    <input id="id_last_name" class="simple-form-input" name="last_name" type="text" placeholder="Last Name" data-validation="required" data-validation-error-msg="Please enter your Last name" />
+                  </div>
+                  <div class="form-group">
+                    <input id="id_username" class="simple-form-input" name="username" type="tel" placeholder="Mobile Number" data-validation="required" data-validation-length="min10" data-validation-error-msg="Please enter Mobile Number" />
+                  </div>
+                  <div class="form-group">
+                    <input id="id_email" class="simple-form-input" name="email" placeholder="E-mail" type="email" data-validation="email" data-validation-error-msg="Please enter a valid Email"/>
+                  </div>
+                  <div class="form-group">
+                    <input id="id_password1" class="simple-form-input" name="password1" placeholder="Password" type="password" data-validation="length" data-validation-length="min8" data-validation-error-msg="Password must contain 8 characters" />
+                  </div>
+                  <div class="form-group">
+                    <input id="id_password2" class="simple-form-input" name="password2" placeholder="Password (again)" type="password" data-validation="confirmation" data-validation-error-msg="Password doesn't match with the above" data-validation-confirm="password1" />
+                  </div>
+                  <input id="id_confirmation_key" maxlength="40" name="confirmation_key" type="hidden" />
+                  <div class="form-footer-urls">
+                    <p>By Sign Up, you agree to our <a href="/terms" target="_blank">Terms</a> and that you have read our <a href="/privacy">Privacy Policy</a>, including our Cookie Use.</p>
+                  </div>
+                  <button type="submit" class="button-semi-block" id="signup-btn" style="width:50%;"><span>Sign Up</span></button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>      
+
+    <!-- Modal  end-->
+
+    <section class="trending" style="padding: 30px;">
+      <div class="container">
+        <h2 class="text-center block-heading">Popular Courses</h2><br>
+        <div class="row">
+          <ul>
+            
+              <li class="col-xs-12 col-sm-6 col-md-3">
+                <div class="block-card">
+                 <a href="/library/course/20/">
+                    <div class="block-card-image-div">
+                      <img src="https://s3.amazonaws.com/tuttor-storage/media/course_covers/IELTS-8392y54.jpg" class="block-card-image img-responsive" > 
+                    </div>
+                    <div class="block-card-text-div">
+                      <h4 class="block-card-title">IELTS</h4>
+                      <p class="block-card-text">IELTS stands for International English Language Testing System. It is an international standardised test of English language proficiency for non-native English language speakers.</p>
+                    </div>
+                    <div class="block-card-footer-div">
+                      <p style="margin-bottom:5px;"><span class="text-left" style="color: #333;">10 hours</span></p>
+                    </div>
+                  </a>
+                </div>
+              </li>
+            
+              <li class="col-xs-12 col-sm-6 col-md-3">
+                <div class="block-card">
+                 <a href="/library/course/19/">
+                    <div class="block-card-image-div">
+                      <img src="https://s3.amazonaws.com/tuttor-storage/media/course_covers/c-language-12312.png" class="block-card-image img-responsive" > 
+                    </div>
+                    <div class="block-card-text-div">
+                      <h4 class="block-card-title">Programming with C for beginners </h4>
+                      <p class="block-card-text">C is a powerful general-purpose high-level-programming language. It is fast, portable and easier to learn. If you are new to programming, C is a good choice to start your programming journey.</p>
+                    </div>
+                    <div class="block-card-footer-div">
+                      <p style="margin-bottom:5px;"><span class="text-left" style="color: #333;">10 hours</span></p>
+                    </div>
+                  </a>
+                </div>
+              </li>
+            
+              <li class="col-xs-12 col-sm-6 col-md-3">
+                <div class="block-card">
+                 <a href="/library/course/7/">
+                    <div class="block-card-image-div">
+                      <img src="https://s3.amazonaws.com/tuttor-storage/media/course_covers/html-course-1.jpg" class="block-card-image img-responsive" > 
+                    </div>
+                    <div class="block-card-text-div">
+                      <h4 class="block-card-title">Web Design For Beginners With HTML and CSS</h4>
+                      <p class="block-card-text">Learn how to build your own website!! </p>
+                    </div>
+                    <div class="block-card-footer-div">
+                      <p style="margin-bottom:5px;"><span class="text-left" style="color: #333;">6 hours</span></p>
+                    </div>
+                  </a>
+                </div>
+              </li>
+            
+              <li class="col-xs-12 col-sm-6 col-md-3">
+                <div class="block-card">
+                 <a href="/library/course/15/">
+                    <div class="block-card-image-div">
+                      <img src="https://s3.amazonaws.com/tuttor-storage/media/course_covers/mrudangam-part1-cover-23123.png" class="block-card-image img-responsive" > 
+                    </div>
+                    <div class="block-card-text-div">
+                      <h4 class="block-card-title">Mridangam- Beginners</h4>
+                      <p class="block-card-text">A South Indian Percussion Instrument.</p>
+                    </div>
+                    <div class="block-card-footer-div">
+                      <p style="margin-bottom:5px;"><span class="text-left" style="color: #333;">10 hours</span></p>
+                    </div>
+                  </a>
+                </div>
+              </li>
+            
+          </ul>
+        </div>
+        <div class="row row-centered" style="position: relative;text-align: right;">
+          <a class="viewall-btn" href="/library/">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="howitworks">
+      <h2 class="text-center block-heading">How it works</h2>
+      <p class="howitworks-description">Tuttor is an online video learning and tutoring platform. To improve the learning experience, our courses are carefully structured to be less than 10 hours long. Our Tuttors are  professional, experienced and encourage a healthy learning environment.</p>
+
+      <div class="container-fluid howitworks-container">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="row howitworks-card">
+            <img src="https://s3.amazonaws.com/tuttor-storage/media/common_images/books.png" class="img-rounded" width="100px;" height="100px">
+          </div>
+          <div>
+            <h4 class="text-center"><strong>1. Select a course</strong></h4> 
+            <p class="text-center howitworks-card-description">Our library is filled with exciting short courses, choose your favourite.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="row howitworks-card">
+            <img src="https://s3.amazonaws.com/tuttor-storage/media/common_images/clock.png" class="img-rounded" width="100px;" height="100px">
+          </div>
+          <div>
+            <h4 class="text-center"><strong>2. Schedule a class</strong></h4> 
+            <p class="text-center howitworks-card-description">Schedule a class at a convenient time with your allotted tuttors.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="row howitworks-card">
+            <img src="https://s3.amazonaws.com/tuttor-storage/media/common_images/student-22.png" class="img-rounded" width="100px;" height="100px">
+          </div>
+          <div>
+            <h4 class="text-center"><strong>3. Start learning - Live</strong></h4>
+            <p class="text-center howitworks-card-description">Start your personalised one-on-one tutoring sessions.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+     
+    <section class="complete-footer">
+      <div class="container">
+        <!--<h1 style="text-align:center;font-family: 'Dancing Script', cursive;letter-spacing:2px;font-size:50px;">Explore More Knowledge with us</h1>-->
+        <div class="row" style="padding-top:30px;">
+          <div class="col-xs-6 col-md-3">
+            <ul class="list-unstyled">
+              <li style="margin-bottom:5px;font-weight:bold;">Company</li>
+              <li><a href="/about">About us</a></li>
+              <li><a href="https://tuttor.tumblr.com/">Blog</a></li>
+              <li><a href="/careers">Careers</a></li>
+              <!--<li><a href="https://status.tuttor.co/">API Status</a></li>-->
+            </ul>
+          </div>
+      <!--
+      <div class="col-xs-6 col-md-3">
+        <ul class="list-unstyled">
+          <li style="margin-bottom:5px;font-weight:bold;">Help us to Improve<li>
+          <li><a href="#">Request for new Track</a></li>
+          <li><a href="#">Request for new Course</a></li>
+          <li><a href="">Sign for a Track</a></li>
+          <li><a href="">Sign for a Course</a></li>
+        </ul>
+      </div>
+    -->
+    <div class="clearfix visible-xs-block visible-sm-block "></div>
+      <!--
+      <div class="col-xs-6 col-md-3">
+        <ul class="list-unstyled">
+          <li style="margin-bottom:5px;font-weight:bold;">Community<li>
+          <li><a href="#">Quickstarts</a></li>
+          <li><a href="#">Tutorials</a></li>
+          <li><a href="#">Offline Courses</a></li>
+          <li><a href="#">Workshops</a></li>
+        </ul>
+      </div>
+    -->
+      <!--
+      <div class="col-xs-6 col-md-3">
+        <ul class="list-unstyled">
+          <li style="margin-bottom:5px;font-weight:bold;">Terms<li>
+          <li><a href="#">Teacher Terms</a></li>
+          <li><a href="#">Student Terms</a></li>
+          <li><a href="#">Usage Terms</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    -->
+    <div class="col-xs-12 col-md-3 col-md-offset-6" style="text-align:left;z-index:999;">
+      <p class="lead">Join Us</p>
+      <a href="https://www.facebook.com/tuttor.co/" class="fa fa-2x fa-facebook-official social_icons" aria-hidden="true"></a>
+      <a href="https://www.instagram.com/tuttorco/" class="fa fa-2x fa-instagram social_icons" aria-hidden="true"></a>
+      <a href="https://twitter.com/tuttor_co" class="fa fa-2x fa-twitter social_icons" aria-hidden="true"></a>
+      <a href="https://www.linkedin.com/in/tuttor-learning-544872124" class="fa fa-2x fa-linkedin-square social_icons" aria-hidden="true"></a>
+      <a href="https://plus.google.com/u/1/111889681806146760207" class="fa fa-2x fa-google-plus social_icons" aria-hidden="true"></a>
+    </div>
+  </div>
+  <hr style="border-color:#999;">
+  <div class="row">
+    <div class="col-xs-4">
+      <ul class="list-unstyled list-inline pull-left">
+        <li><a href="/terms">Terms and Conditions</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+      </ul>
+    </div>
+    <div class="col-xs-4" style="text-align:center;">
+      <span>Made with</span>
+      <i class="fa fa-heart" aria-hidden="true" style="color:red;padding-bottom:5px;"></i>
+      <span>in India</span>
+      <h1 class="rhr" style="text-align:center;"></h1><br>
+    </div>
+    <div class="col-xs-4">
+      <p class="text-muted pull-right">Tuttor Learning Systems and Services Pvt. Ltd.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/9.0.9/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+ <script src="/static/js/scripts.760bc6a83dfe.js"></script>
+
+<script type="text/javascript">
+$( window ).resize(function() {
+  var tpbw = $('.card-image-div').width();
+  $('.card-image-div').height((tpbw/16)*9);
+});
+var tpbw = $('.card-image-div').width();
+$('.card-image-div').height((tpbw/16)*9);
+setTimeout(function(){
+  $("#lp-hu-title").typed({
+    strings: ["Learn music from expert artists, live."],
+    typeSpeed: 50, 
+    backDelay: 750,
+    loop: false, // loop on or off (true or false)
+    loopCount: false, // number of loops, false = infinite
+    callback: function(){ } // call function after typing is done
+  });
+}, 0);
+
+$(document).ready(function() {
+  $.validate({
+    modules : 'security'
+  });
+
+  $('#login-form-link').click(function(e) {
+    $("#loginForm").delay(100).fadeIn(100);
+    $("#signup_form").fadeOut(100);
+    $('#register-form-link').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+  });
+  $('#register-form-link').click(function(e) {
+    $("#signup_form").delay(100).fadeIn(100);
+    $("#loginForm").fadeOut(100);
+    $('#login-form-link').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+  });
+
+  $('#howitworks-btn').click(function(){
+    $('html, body').animate({
+      scrollTop: $( $(this).attr('href') ).offset().top
+    }, 700);
+    return false; 
+  });
+
+  $('#quote-carousel').carousel({
+    pause: true,
+    interval: 4000,
+  });
+
+  
+  $("#id_username").intlTelInput({
+    initialCountry: "in",
+    nationalMode: true,
+    geoIpLookup: function(callback) {
+      $.get('https://ipinfo.io/', function() {}, "jsonp").always(function(resp) {
+        var countryCode = (resp && resp.country) ? resp.country : "";
+        callback(countryCode);
+      });
+    },
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/9.0.9/js/utils.js" 
+      // just for formatting/placeholders etc
+    });
+
+  $("#id_username").on("keyup change", function() {
+    var intlNumber = $("#id_username").intlTelInput("getNumber");
+    if (intlNumber) {
+      $("#id_username").val(intlNumber);
+    }
+  });
+
+});
+
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84153085-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '193964074302363');
+    fbq('track', "PageView");</script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=193964074302363&ev=PageView&noscript=1"
+      /></noscript>
+      <!-- End Facebook Pixel Code -->
+    </body>
+
+    </html>
+
